@@ -1,0 +1,37 @@
+name: Update formula
+
+# Each Textrix release attaches a filled-in textrix.rb. This copies the
+# latest one into Formula/ when it changes, so releasing Textrix is all it
+# takes to update the tap.
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Fetch the latest release's formula
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo seamoss/Textrix --pattern textrix.rb --output Formula/textrix.rb --clobber
+          if git diff --quiet && git ls-files --error-unmatch Formula/textrix.rb >/dev/null 2>&1; then
+            echo "already up to date"
+            exit 0
+          fi
+          version=$(sed -n 's|.*/releases/download/v\([^/]*\)/.*|\1|p' Formula/textrix.rb | head -1)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula/textrix.rb
+          git commit -m "textrix $version"
+          git push
