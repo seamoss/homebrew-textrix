@@ -8,18 +8,18 @@ class Textrix < Formula
   head "https://github.com/seamoss/Textrix.git", branch: "master"
 
   on_macos do
-    url "https://github.com/seamoss/Textrix/releases/download/v0.8.1/textrix-v0.8.1-universal-apple-darwin.tar.gz"
-    sha256 "0d2b8ebda23e4fa430c134b602a1c3784c889a3adfd6a7a66e2b86c84a126bcf"
+    url "https://github.com/seamoss/Textrix/releases/download/v0.9.0/textrix-v0.9.0-universal-apple-darwin.tar.gz"
+    sha256 "f94d2b8cca79d64556b8763874d3b53a2c6b2c16b89e73345ea43f069be4a9cc"
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.8.1/textrix-v0.8.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "433afbf15ab4f950e48810bcd9d042475b5094a5a39baf6755ebe560b4a057c9"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.9.0/textrix-v0.9.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "0bd358045ade60133075bd0ce092f8ca4a285dde70a3c1865009e39525f93394"
     end
     on_intel do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.8.1/textrix-v0.8.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c2223f0603c378d86dc259b7ddda5c4d1463425b3380e28e07b625edd4d04200"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.9.0/textrix-v0.9.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "a0b519e8d471da0e97317d24c4743394cb92c383865d6521d3db308b033de191"
     end
   end
 
@@ -44,13 +44,17 @@ class Textrix < Formula
         mkdir -p ~/.textrix
         cp #{opt_pkgshare}/env.example ~/.textrix/.env
         chmod 600 ~/.textrix/.env
-      then fill in your server and account, and run `textrix`.
-      Passwords can come from a password manager instead of the file;
-      #{opt_pkgshare}/env.example explains how.
+      then fill in your server and account, check it with `textrix --check`,
+      and run `textrix`. Passwords can come from a password manager instead
+      of the file; #{opt_pkgshare}/env.example explains how.
+
+      To upgrade: brew upgrade textrix. A Textrix that's running (in the
+      background too) then shows "[x.y.z installed: /restart]", and
+      /restart switches to the new one where you were.
     EOS
   end
 
   test do
-    assert_match "textrix", shell_output("#{bin}/textrix --version")
+    assert_match(/^textrix \d+\.\d+\.\d+$/, shell_output("#{bin}/textrix --version").strip)
   end
 end
