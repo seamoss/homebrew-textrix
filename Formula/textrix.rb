@@ -8,18 +8,18 @@ class Textrix < Formula
   head "https://github.com/seamoss/Textrix.git", branch: "master"
 
   on_macos do
-    url "https://github.com/seamoss/Textrix/releases/download/v0.7.1/textrix-v0.7.1-universal-apple-darwin.tar.gz"
-    sha256 "55f6356055290b69a06cbaf0296640423d4c64a20d45c7a586835f157c963c5c"
+    url "https://github.com/seamoss/Textrix/releases/download/v0.8.0/textrix-v0.8.0-universal-apple-darwin.tar.gz"
+    sha256 "369ccf4cb1172cc2dbb400ef1ad1529ab2a3017d600ef1f94dab286c17167767"
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.7.1/textrix-v0.7.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "c05557c5ad20750d7ab369c2c13b2973e39260ff27aef9c22822c39a7a6dfae6"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.8.0/textrix-v0.8.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "c10890811b3af1b8aa819fc0b5a2301dc99c51f5f9676c96b15901b9dccf1dc3"
     end
     on_intel do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.7.1/textrix-v0.7.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "2fe60cd0beb20d83f60b3423425263578b64d5f2d8f07213c365007887ff9176"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.8.0/textrix-v0.8.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "74252bc2ba2b77870d51db0dfc892a827b681ac11c18e380f0935d8f41673547"
     end
   end
 
