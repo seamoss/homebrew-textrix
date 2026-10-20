@@ -8,18 +8,18 @@ class Textrix < Formula
   head "https://github.com/seamoss/Textrix.git", branch: "master"
 
   on_macos do
-    url "https://github.com/seamoss/Textrix/releases/download/v0.13.0/textrix-v0.13.0-universal-apple-darwin.tar.gz"
-    sha256 "162195733ef6bf9226467851ba1810509176967d49264a5e934923f4cc679974"
+    url "https://github.com/seamoss/Textrix/releases/download/v0.14.0/textrix-v0.14.0-universal-apple-darwin.tar.gz"
+    sha256 "947ad37cb15550809166e7f862c9635ecea552a6606c0e43dd013ea123188e6e"
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.13.0/textrix-v0.13.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "290b013e04d91334592ac80ec5fe359bd560c202db5f29c7e2fd8e70b03273c6"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.14.0/textrix-v0.14.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "7208d1a996acb2a87dd66f96a81e3a589aba617e073adbea7402e2ccdb68fe03"
     end
     on_intel do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.13.0/textrix-v0.13.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "c7f500c00b9c68ef8d66b95cc2bfb95a83ac63ba022ad63658f0a34be6a2200f"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.14.0/textrix-v0.14.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2383c61878d06428775fd737b99745e755bff0dddba5455262e20816b5916851"
     end
   end
 
@@ -48,7 +48,7 @@ class Textrix < Formula
       and run `textrix`. Passwords can come from a password manager instead
       of the file; #{opt_pkgshare}/env.example explains how.
 
-      To upgrade: brew upgrade textrix. A Textrix that's running (in the
+      To upgrade: brew update && brew upgrade textrix. A Textrix that's running (in the
       background too) then shows "[x.y.z installed: /restart]", and
       /restart switches to the new one where you were.
     EOS
