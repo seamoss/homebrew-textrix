@@ -8,18 +8,18 @@ class Textrix < Formula
   head "https://github.com/seamoss/Textrix.git", branch: "master"
 
   on_macos do
-    url "https://github.com/seamoss/Textrix/releases/download/v0.23.0/textrix-v0.23.0-universal-apple-darwin.tar.gz"
-    sha256 "375a57a0ab482d7e6a4b66e3f768ab5247c4c9875a112571148c679162e9db29"
+    url "https://github.com/seamoss/Textrix/releases/download/v0.24.0/textrix-v0.24.0-universal-apple-darwin.tar.gz"
+    sha256 "2b6186a3d4eda6bccd9950ecc8b860e6810e81e72bfb8723db2621668da66486"
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.23.0/textrix-v0.23.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "75d19533d5cc0c71ccfc7499fb42b634246ef8cf10eb63cc74a118c4a7a8672f"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.24.0/textrix-v0.24.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "2a449ea9da9351c3b226e6b2cba895a6d485a191f1601a001fe5bf14f4e7b4d2"
     end
     on_intel do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.23.0/textrix-v0.23.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "9065e2c03c62e6dd18793e2ab857ad66fdfada8aa00cefdd3e1e07b8240602b8"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.24.0/textrix-v0.24.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8c8e61b27fc7b4f1c00ba64b5fa7def635629b391667c028b277d672dc8d546f"
     end
   end
 
@@ -41,12 +41,12 @@ class Textrix < Formula
   def caveats
     <<~EOS
       Textrix only connects to the servers listed in ~/.textrix/.env. To start:
-        mkdir -p ~/.textrix
-        cp #{opt_pkgshare}/env.example ~/.textrix/.env
-        chmod 600 ~/.textrix/.env
-      then fill in your server and account, check it with `textrix --check`,
-      and run `textrix`. Passwords can come from a password manager instead
-      of the file; #{opt_pkgshare}/env.example explains how.
+        textrix setup
+      asks for your Matrix ID and writes that file, leaving your password for
+      you to put in it (it's never typed into Textrix); then run `textrix`.
+      Or by hand: copy #{opt_pkgshare}/env.example to ~/.textrix/.env,
+      chmod 600 it and fill it in. Passwords can come from a password manager
+      instead of the file; env.example explains how.
 
       To upgrade: brew update && brew upgrade textrix. A Textrix that's running (in the
       background too) then shows "[x.y.z installed: /restart]", and
