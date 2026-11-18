@@ -8,18 +8,18 @@ class Textrix < Formula
   head "https://github.com/seamoss/Textrix.git", branch: "master"
 
   on_macos do
-    url "https://github.com/seamoss/Textrix/releases/download/v0.22.0/textrix-v0.22.0-universal-apple-darwin.tar.gz"
-    sha256 "acca1c0b52f3309dd498834d1db9e7ea4ef64741b54d3fec34a572e97f8ed897"
+    url "https://github.com/seamoss/Textrix/releases/download/v0.23.0/textrix-v0.23.0-universal-apple-darwin.tar.gz"
+    sha256 "375a57a0ab482d7e6a4b66e3f768ab5247c4c9875a112571148c679162e9db29"
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.22.0/textrix-v0.22.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "1b5b6832e9d4ddfb2c33fd0ce5f5c5beaba4d2b49e24b91c77051931fc6344ef"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.23.0/textrix-v0.23.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "75d19533d5cc0c71ccfc7499fb42b634246ef8cf10eb63cc74a118c4a7a8672f"
     end
     on_intel do
-      url "https://github.com/seamoss/Textrix/releases/download/v0.22.0/textrix-v0.22.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "43445bfb7d62c7809c40345ea4c551be05fc3bb36ff05833fa480fe5bbf3ffc2"
+      url "https://github.com/seamoss/Textrix/releases/download/v0.23.0/textrix-v0.23.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "9065e2c03c62e6dd18793e2ab857ad66fdfada8aa00cefdd3e1e07b8240602b8"
     end
   end
 
@@ -51,6 +51,9 @@ class Textrix < Formula
       To upgrade: brew update && brew upgrade textrix. A Textrix that's running (in the
       background too) then shows "[x.y.z installed: /restart]", and
       /restart switches to the new one where you were.
+
+      On a Mac, `textrix app install` puts Textrix.app in ~/Applications, to start
+      it from Alfred, Spotlight or the Dock (in Ghostty, or Terminal).
     EOS
   end
 
